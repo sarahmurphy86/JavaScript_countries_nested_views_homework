@@ -1,4 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
+const RegionView = require('./region_view.js')
 
 const RegionsListView = function (container) {
   this.container = container;
@@ -12,31 +13,37 @@ RegionsListView.prototype.getDataFromTheApiToDisplay = function () {
   });
 };
 
+// RegionsListView.prototype.render = function () {
+//   this.regions.forEach((region) => {
+//      const countryName = region.name
+//      const htmlElementforCountryName = document.createElement('h3')
+//      htmlElementforCountryName.textContent = countryName
+//      // console.log(countryName);
+//      this.container.appendChild(htmlElementforCountryName);
+//
+//      const unorderedListToCreateBulletPoints = document.createElement('ul')
+//      this.container.appendChild(unorderedListToCreateBulletPoints)
+//
+//      const countryCapital = region.capital
+//      const htmlElementForCapitalCity = document.createElement('li')
+//      htmlElementForCapitalCity.textContent = `Capital: ` + countryCapital
+//      // console.log(countryCapital);
+//      this.container.appendChild(htmlElementForCapitalCity)
+//
+//      const countryPopulation = region.population
+//      const htmlElementForPopulation = document.createElement('li')
+//      htmlElementForPopulation.textContent = `Population: ` + countryPopulation
+//      this.container.appendChild(htmlElementForPopulation)
+//   });
+// };
+
 RegionsListView.prototype.render = function () {
   this.regions.forEach((region) => {
-     const countryName = region.name
-     const htmlElement = document.createElement('h3')
-     htmlElement.textContent = countryName
-     // console.log(countryName);
-     this.container.appendChild(htmlElement);
-
-     const unorderedList = document.createElement('ul')
-     this.container.appendChild(unorderedList)
-
-     const countryCapital = region.capital
-     const htmlElement2 = document.createElement('li')
-     htmlElement2.textContent = `Capital: ` + countryCapital
-     // console.log(countryCapital);
-     this.container.appendChild(htmlElement2)
-
-     const countryPopulation = region.population
-     const htmlElement3 = document.createElement('li')
-     htmlElement3.textContent = `Population: ` + countryPopulation
-     this.container.appendChild(htmlElement3)
-
+    const regionView = new RegionView(region);
+    const regionElement = regionView.render();
+    this.container.appendChild(regionElement);
   });
 };
-
 
 
 module.exports = RegionsListView;
