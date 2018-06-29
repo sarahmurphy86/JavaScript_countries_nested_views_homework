@@ -14,11 +14,26 @@ RegionsListView.prototype.getDataFromTheApiToDisplay = function () {
 
 RegionsListView.prototype.render = function () {
   this.regions.forEach((region) => {
-     const name = region.name
+     const countryName = region.name
      const htmlElement = document.createElement('h3')
-     htmlElement.textContent = name
+     htmlElement.textContent = countryName
+     // console.log(countryName);
      this.container.appendChild(htmlElement);
+
+     const countryCapital = region.capital
+     const htmlElement2 = document.createElement('ul')
+     htmlElement2.textContent = countryCapital
+     // console.log(countryCapital);
+     this.container.appendChild(htmlElement2)
+
+     const countryPopulation = region.population
+     const htmlElement3 = document.createElement('ul')
+     htmlElement3.textContent = countryPopulation
+     this.container.appendChild(htmlElement3)
+
   });
 };
+
+
 
 module.exports = RegionsListView;

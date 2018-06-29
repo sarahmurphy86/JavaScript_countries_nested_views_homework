@@ -13,11 +13,4 @@ Regions.prototype.getData = function () {
   });
 };
 
-
-// Regions.prototype.getRegionNames = function (countries) {
-//   return countries
-//     .map(country => country.region)
-//     .filter((region, index, regions) => regions.indexOf(region) === index);
-// };
-
 module.exports = Regions;
