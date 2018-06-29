@@ -20,15 +20,18 @@ RegionsListView.prototype.render = function () {
      // console.log(countryName);
      this.container.appendChild(htmlElement);
 
+     const unorderedList = document.createElement('ul')
+     this.container.appendChild(unorderedList)
+
      const countryCapital = region.capital
-     const htmlElement2 = document.createElement('ul')
-     htmlElement2.textContent = countryCapital
+     const htmlElement2 = document.createElement('li')
+     htmlElement2.textContent = `Capital: ` + countryCapital
      // console.log(countryCapital);
      this.container.appendChild(htmlElement2)
 
      const countryPopulation = region.population
-     const htmlElement3 = document.createElement('ul')
-     htmlElement3.textContent = countryPopulation
+     const htmlElement3 = document.createElement('li')
+     htmlElement3.textContent = `Population: ` + countryPopulation
      this.container.appendChild(htmlElement3)
 
   });
